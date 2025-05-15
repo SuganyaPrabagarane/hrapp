@@ -1,19 +1,17 @@
 .card {
-  min-width: 50vh;
-  min-height: 50vh;
-  background-color: rgb(19, 137, 129);
+  width: 40vh;
+  min-height: 40vh;
   border-radius: 10px;
-  box-shadow: inset 2px 2px 2px;
-  padding: 20px;
+  background-color: #0b8891;
+  column-gap: 2vh;
+  align-content: center;
+  padding: 10px;
   color: white;
-  font-size: 1.2rem;
-  line-height: 1rem;
 }
 
 .employeeList {
+  padding: 30px;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
-  padding-bottom: 2rem;
 }
