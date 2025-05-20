@@ -40,7 +40,9 @@ const PersonCard = ({name,title,salary,phone,email,animal,startDate,location,dep
         { name: 'Fox', emoji: '🦊'},
         { name: 'Panda', emoji: '🐼'},
         { name: 'Polar Bear', emoji: '🐻‍❄️'},
-        { name: 'Seal', emoji: '🦭'}
+        { name: 'Seal', emoji: '🦭'},
+        { name: 'Kola', emoji: ''}
+        
     ]
 
     const filterEmoji = animalEmojis.find(a => a.name.toLowerCase() === animal.toLowerCase());
@@ -51,18 +53,22 @@ const PersonCard = ({name,title,salary,phone,email,animal,startDate,location,dep
     return(
        
         <div className="card">
-            <p><strong>Name:</strong> {name}</p>
-            <p><strong>Title:</strong> {title}</p>
-            <p><strong>Salary:</strong> {salary} €</p>
-            <p><strong>Phone: </strong>{phone}</p>
-            <p><strong>Email:</strong> {email}</p>
-            <p><strong>Animal:</strong> {animal} {addAnimalEmoji(animal)}</p>
-            <p><strong>Start Date:</strong> {startDate}</p>
-            <p><strong>Location:</strong> {location}</p>
-            <p><strong>Department:</strong> {department}</p>
-            <p><strong>Skills: </strong>{skills}</p>
-            <p><strong>Experience: </strong>{years} Years and {months} Months</p>
-            <p><strong>{anniversaryMessage}</strong></p>
+            <div className='div-name'>
+                <p className='name'>{name} (<span className='title'>{title}</span>)</p>
+                {/* <p className='title'> {title}</p> */}
+            </div>
+            <div className='div-title'>
+            <p><strong style={{ color: 'blue' }}>Salary:</strong> {salary} €</p>
+            <p><strong style={{ color: 'blue' }}>Phone: </strong>{phone}</p>
+            <p><strong style={{ color: 'blue' }}>Email:</strong> {email}</p>
+            <p><strong style={{ color: 'blue' }}>Animal:</strong> {animal} {addAnimalEmoji(animal)}</p>
+            <p><strong style={{ color: 'blue' }}>Start Date:</strong> {startDate}</p>
+            <p><strong style={{ color: 'blue' }}>Location:</strong> {location}</p>
+            <p><strong style={{ color: 'blue' }}>Department:</strong> {department}</p>
+            <p><strong style={{ color: 'blue' }}>Skills: </strong>{skills}</p>
+            <p><strong style={{ color: 'blue' }}>Experience: </strong>{years} Years and {months} Months</p>
+            <p className='anniversary-message'><strong>{anniversaryMessage}</strong></p>
+            </div>
                   
         </div>
       

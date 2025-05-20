@@ -1,8 +1,8 @@
 import './Footer.css';
-const Footer = () =>{
+const Footer = ({year}) =>{
     return(
         <footer>
-        <p>Copyright@REACT25K</p>
+        <p>Copyright@{year}</p>
         </footer>
     )
 }

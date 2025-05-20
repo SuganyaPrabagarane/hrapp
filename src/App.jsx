@@ -1,17 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PersonList from './Employees/PersonList';
 import './App.css';
 import { createBrowserRouter , RouterProvider} from 'react-router';
 import Root from './pages/Root';
 import About from './pages/About';
 import AddEmployee from './pages/AddEmployee';
-import { employees } from './Employees/employeesData';
+import axios from 'axios';
 
 function App() {
-  const [employeeData, setEmployeeData] = useState(employees);
+  const [employeeData, setEmployeeData] = useState([]);
+
+  useEffect (() =>{
+    axios.get('http://localhost:3001/employees')
+    .then((res) =>{
+      console.log(res);
+      setEmployeeData(res.data)})
+    .catch((err) => 
+        console.log('Failed to fetch data', err));
+  }, [])
 
   const addEmployeeHandler = (newEmployee) =>{
-    const updatedEmployee = [...employeeData, {...newEmployee, id:Date.now() } ];
+    const updatedEmployee = [...employeeData, {...newEmployee} ];
     setEmployeeData(updatedEmployee);
     console.log(updatedEmployee);
   }
