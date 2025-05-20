@@ -11,9 +11,10 @@ const Header = ({logo}) =>{
             </div>
             <nav>
                 <ul>
+                    {/* <li> <NavLink to = '/'>Home</NavLink></li> */}
                     <li> <NavLink to = '/'>Home</NavLink></li>
-                    <li> <NavLink to = '/about'>About</NavLink></li>
                     <li> <NavLink to = '/person'>Persons</NavLink></li>
+                    <li> <NavLink to = '/about'>About</NavLink></li>
                     <li> <NavLink to = '/add'>Add new Employee</NavLink></li>
                 </ul>
                 </nav>
