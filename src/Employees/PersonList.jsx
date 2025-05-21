@@ -1,8 +1,10 @@
 import PersonCard from "./PersonCard";
 import { useState } from "react";
 
-const PersonList = ({employeeData}) =>{
+const PersonList = ({employeeData, onHandleEditFields}) =>{
     const [searchValue, setSearchValue] = useState('');
+    const [filter, setFilter] = useState('all');
+
 
     const handleSearch =(event) =>{
         setSearchValue(event.target.value);
@@ -12,10 +14,16 @@ const PersonList = ({employeeData}) =>{
     const filteredEmployee = employeeData.filter(employee =>{
         const searchByText = searchValue.toLowerCase();
         const searchById = searchValue;
-        return(
+    
+        const search = 
             employee.name.toLowerCase().includes(searchById) ||
-            employee.title.toLowerCase().includes(searchByText) || employee.department.toLowerCase().includes(searchByText) || employee.id.includes(searchById)
-        );
+            employee.title.toLowerCase().includes(searchByText) || 
+            employee.department.toLowerCase().includes(searchByText) || 
+            employee.id.includes(searchById) 
+
+        const filtered = filter === 'all' ||  employee.title === filter;
+
+        return (search && filtered);
     });
     
     return(
@@ -28,11 +36,18 @@ const PersonList = ({employeeData}) =>{
         </div>
 
         <div className="filters">
-            <label for='filter-user'>Filter by Title</label>
-            <select value=''>
+            <label htmlFor='filter-user'>Filter by Title</label>
+            <select value={filter} onChange={(e) =>setFilter(e.target.value)}>
                 <option value = 'all'>All</option>
-                {filteredEmployee.map(employee =>(
-                    <option key={employee.id} value={employee.id}>{employee.title}</option>
+
+                {/* This displyas duplicate title */}
+                {/* {employeeData.map(employee =>(
+                    <option key={employee.id} value={employee.title}>{employee.title}</option>
+                ))} */}
+
+                {/* It removes the duplicate title */}
+                {[...new Set(employeeData.map(emp => emp.title))].map(title => (
+                    <option key={title} value={title}>{title}</option>
                 ))}
               
 
@@ -43,7 +58,10 @@ const PersonList = ({employeeData}) =>{
        {filteredEmployee.length > 0 ? (
 
         filteredEmployee.map(employee => (
-        <PersonCard key={employee.id} {...employee} skills={employee.skills.join(', ')}/>
+        <PersonCard key={employee.id} {...employee} 
+             skills={employee.skills.join(', ')} 
+            handleEdit = {(id,editFields) => onHandleEditFields(id, editFields)}
+        />
 
         ))
        ) : (

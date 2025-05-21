@@ -4,42 +4,41 @@
       "id": "1",
       "name": "Suganya Prabagarane",
       "title": "Developer",
-      "salary": 4000,
+      "salary": "2000",
       "phone": "555-1234",
       "email": "suganyaprabagarane@gmail.com",
       "animal": "Panda",
       "startDate": "2024-12-15",
-      "location": "India",
-      "department": "Web Developer",
+      "location": "espoo",
+      "department": "Backend developer",
       "skills": [
         "JavaScript",
-        "React",
-        "Node.js",
-        "PHP"
+        " Larvel",
+        " Agile"
       ]
     },
     {
       "id": "2",
       "name": "Prabagarane",
       "title": "Product Manager",
-      "salary": 5000,
+      "salary": "2000",
       "phone": "555-5678",
       "email": "prabagarane@gmail.com",
       "animal": "Dog",
       "startDate": "2020-03-10",
-      "location": "Finland",
-      "department": "Product",
+      "location": "Chennai",
+      "department": "SDM",
       "skills": [
-        "Agile",
         "Scrum",
-        "Roadmapping"
+        " Roadmapping",
+        " testing"
       ]
     },
     {
       "id": "3",
       "name": "Sonia",
       "title": "UI/UX Designer",
-      "salary": 5000,
+      "salary": "3000",
       "phone": "555-2345",
       "email": "sonia@gmail.com",
       "animal": "Cat",
@@ -56,47 +55,48 @@
       "id": "4",
       "name": "Fizza",
       "title": "DevOps Engineer",
-      "salary": 5500,
+      "salary": "4000",
       "phone": "555-8765",
       "email": "fizza@gmail.com",
       "animal": "Rabbit",
       "startDate": "2014-12-20",
-      "location": "Pakistan",
-      "department": "Engineering",
+      "location": "finland",
+      "department": "Developer",
       "skills": [
         "AWS",
-        "Docker",
-        "CI/CD"
+        " Docker",
+        " CI/CD",
+        " testing"
       ]
     },
     {
       "id": "5",
       "name": "Devesh",
       "title": "Data Scientist",
-      "salary": 45000,
+      "salary": "3000",
       "phone": "555-1357",
       "email": "devesh@gmail.com",
       "animal": "Cat",
       "startDate": "2014-08-01",
-      "location": "India",
+      "location": "Chennai",
       "department": "Data",
       "skills": [
         "Python",
-        "Machine Learning",
-        "SQL"
+        "  Machine Learning",
+        ""
       ]
     },
     {
       "id": "6",
       "name": "Pragadhish",
       "title": "Marketing Specialist",
-      "salary": 5400,
+      "salary": "4000",
       "phone": "555-2468",
       "email": "pragadhish@gmail.com",
       "animal": "Seal",
       "startDate": "2020-08-12",
       "location": "Finland",
-      "department": "Marketing",
+      "department": "Manager",
       "skills": [
         "SEO",
         "Content Strategy",
