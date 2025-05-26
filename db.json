@@ -4,7 +4,7 @@
       "id": "1",
       "name": "Suganya Prabagarane",
       "title": "Developer",
-      "salary": "2000",
+      "salary": "1000",
       "phone": "555-1234",
       "email": "suganyaprabagarane@gmail.com",
       "animal": "Panda",
@@ -13,15 +13,15 @@
       "department": "Backend developer",
       "skills": [
         "JavaScript",
-        " Larvel",
-        " Agile"
+        "  Larvel",
+        "  Agile"
       ]
     },
     {
       "id": "2",
       "name": "Prabagarane",
       "title": "Product Manager",
-      "salary": "2000",
+      "salary": "200",
       "phone": "555-5678",
       "email": "prabagarane@gmail.com",
       "animal": "Dog",
@@ -30,8 +30,8 @@
       "department": "SDM",
       "skills": [
         "Scrum",
-        " Roadmapping",
-        " testing"
+        "  Roadmapping",
+        "  testing"
       ]
     },
     {
@@ -41,7 +41,7 @@
       "salary": "3000",
       "phone": "555-2345",
       "email": "sonia@gmail.com",
-      "animal": "Cat",
+      "animal": "Deer",
       "startDate": "2020-05-01",
       "location": "Bangaladesh",
       "department": "Design",
@@ -76,7 +76,7 @@
       "salary": "3000",
       "phone": "555-1357",
       "email": "devesh@gmail.com",
-      "animal": "Cat",
+      "animal": "JellyFish",
       "startDate": "2014-08-01",
       "location": "Chennai",
       "department": "Data",
@@ -93,7 +93,7 @@
       "salary": "4000",
       "phone": "555-2468",
       "email": "pragadhish@gmail.com",
-      "animal": "Seal",
+      "animal": "Lion",
       "startDate": "2020-08-12",
       "location": "Finland",
       "department": "Manager",
@@ -127,7 +127,7 @@
       "salary": 7000,
       "phone": "555-7410",
       "email": "santosh@gmail.com",
-      "animal": "Llama",
+      "animal": "Turtle",
       "startDate": "2019-05-30",
       "location": "Phoenix",
       "department": "Web Developer",
@@ -144,7 +144,7 @@
       "salary": 5000,
       "phone": "555-3691",
       "email": "keerthana@gmail.com",
-      "animal": "Rabbit",
+      "animal": "Owl",
       "startDate": "2024-12-23",
       "location": "Denver",
       "department": "Engineering",
@@ -161,7 +161,7 @@
       "salary": 5000,
       "phone": "555-9630",
       "email": "praveen@gmail.com",
-      "animal": "Tiger",
+      "animal": "Whale",
       "startDate": "2024-10-05",
       "location": "Los Angeles",
       "department": "Finance",
@@ -178,7 +178,7 @@
       "salary": 1000,
       "phone": "",
       "email": "suganyaprabagarane@gmail.com",
-      "animal": "panda",
+      "animal": "Koala",
       "startDate": "12.10.2010",
       "location": "chennai",
       "department": "it",
@@ -189,20 +189,20 @@
       ]
     },
     {
-      "id": "0b62",
-      "name": "2",
-      "title": "2",
-      "salary": 2,
-      "email": "2@gmail.com",
-      "animal": "2",
-      "startDate": "12.10.2020",
-      "location": "2",
-      "department": "2",
+      "id": "a865",
+      "name": "test10",
+      "title": "test10",
+      "salary": 10,
+      "phone": "",
+      "email": "jamesbond@gmail.com",
+      "animal": "panda",
+      "startDate": "12.10.2010",
+      "location": "bangalore",
+      "department": "werewr",
       "skills": [
-        "2",
-        "3",
-        "4",
-        "5"
+        "wedwqed",
+        "sfdwef",
+        "wedewdw"
       ]
     }
   ]

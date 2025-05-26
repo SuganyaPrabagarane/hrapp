@@ -1,7 +1,7 @@
 import PersonCard from "./PersonCard";
 import { useState } from "react";
 
-const PersonList = ({employeeData, onHandleEditFields}) =>{
+const PersonList = ({employeeData, onHandleEditFields,onHandleDelete}) =>{
     const [searchValue, setSearchValue] = useState('');
     const [filter, setFilter] = useState('all');
 
@@ -61,6 +61,7 @@ const PersonList = ({employeeData, onHandleEditFields}) =>{
         <PersonCard key={employee.id} {...employee} 
              skills={employee.skills.join(', ')} 
             handleEdit = {(id,editFields) => onHandleEditFields(id, editFields)}
+            handleDelete = {(id) => onHandleDelete(id)}
         />
 
         ))

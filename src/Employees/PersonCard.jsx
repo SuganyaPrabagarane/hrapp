@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './Employees.css';
-const PersonCard = ({id,name,title,salary,phone,email,animal,startDate,location,department,skills,handleEdit,...rest}) =>{
+const PersonCard = ({id,name,title,salary,phone,email,animal,startDate,location,department,skills,handleEdit,handleDelete}) =>{
 
     const [isEditing, setIsEditing] = useState(false);
     const [editFields, setEditFields] = useState({
@@ -27,7 +27,11 @@ const PersonCard = ({id,name,title,salary,phone,email,animal,startDate,location,
       setIsEditing(!isEditing);
     };
 
-
+    const handleRemove =()=>{
+        handleDelete(id);
+        console.log('deleted id:', id);
+        alert(`${name}'s details are deleted successfully`)
+    }
 
     const calculateExperience = () =>{
         const fromDate = new Date(startDate);
@@ -49,32 +53,37 @@ const PersonCard = ({id,name,title,salary,phone,email,animal,startDate,location,
     const {years, months} = calculateExperience(); // Destructure years and months from the return object
 
     let anniversaryMessage = '';
+    let anniversaryImage = '';
     if ([5,10,15].includes(years) && months == 0){
-         anniversaryMessage = '🎉 Schedule recognition meeting';
+         anniversaryMessage = 'Schedule recognition meeting';
+         anniversaryImage = 'public/icons/party-popper.png';
     } else if (years === 0 && months < 6){
-        anniversaryMessage = '🔔 Schedule probation review';   
+        anniversaryMessage = 'Schedule probation review';  
+        anniversaryImage = 'public/icons/christmas-bell.png' 
     }
 
     const addAnimalEmoji = (animal) =>{
     
         const animalEmojis = [
-        { name: 'Rabbit' , emoji: '🐇'},
-        { name: 'Tiger' , emoji: '🐅'},
-        { name: 'Dog', emoji: '🐕'},
-        { name: 'Cow', emoji: '🐄'},
-        { name: 'Cat' , emoji:'🐈'},
-        { name: 'Llama', emoji: '🐈'},
-        { name: 'Goat', emoji: '🐐'},
-        { name: 'Fox', emoji: '🦊'},
-        { name: 'Panda', emoji: '🐼'},
-        { name: 'Polar Bear', emoji: '🐻‍❄️'},
-        { name: 'Seal', emoji: '🦭'},
-        { name: 'Kola', emoji: ''}
-        
-    ]
+        { name: 'Rabbit' , emoji: '/public/icons/rabbit.png' },
+        { name: 'Bee' , emoji: '/public/icons/bee.png'},
+        { name: 'Dog', emoji: '/public/icons/dog.png'},
+        { name: 'Deer', emoji: '/public/icons/deer.png'},
+        { name: 'Elephant' , emoji:'/public/icons/elephant.png'},
+        { name: 'Fox', emoji: '/public/icons/fox.png'},
+        { name: 'JellyFish', emoji: '/public/icons/jellyfish.png'},
+        { name: 'Koala', emoji: '/public/icons/koala.png'},
+        { name: 'Lion', emoji: '/public/icons/lion.png'},
+        { name: 'Owl', emoji: '/public/icons/owl.png'},
+        { name: 'Panda', emoji: '/public/icons/panda.png'},
+        { name: 'Squirrel', emoji: '/public/icons/squirrel.png'},
+        { name: 'Turtle', emoji: '/public/icons/turtle.png'},
+        { name: 'Whale', emoji: '/public/icons/whale.png'}
+   
+        ]
 
-    const filterEmoji = animalEmojis.find(a => a.name.toLowerCase() === animal.toLowerCase());
-    return filterEmoji ? filterEmoji.emoji : ' ';
+        const filterEmoji = animalEmojis.find(a => a.name.toLowerCase() === animal.toLowerCase());
+        return filterEmoji ? filterEmoji.emoji : ' ';
 
     }
 
@@ -105,10 +114,15 @@ const PersonCard = ({id,name,title,salary,phone,email,animal,startDate,location,
                 }
             <p><strong style={{ color: 'blue' }}>Phone: </strong>{phone}</p>
             <p><strong style={{ color: 'blue' }}>Email:</strong> {email}</p>
-            <p><strong style={{ color: 'blue' }}>Animal:</strong> {animal} {addAnimalEmoji(animal)}</p>
+            <p><strong style={{ color: 'blue' }}>Animal:</strong> <img src = {addAnimalEmoji(animal)} height={40} width={40} alt='animal-image'/></p>
             <p><strong style={{ color: 'blue' }}>Start Date:</strong> {startDate}</p>
             <p><strong style={{ color: 'blue' }}>Experience: </strong>{years} Years and {months} Months</p>
-            <p className='anniversary-message'><strong>{anniversaryMessage}</strong></p>
+
+            {(anniversaryMessage === 'Schedule recognition meeting' || anniversaryMessage ==='Schedule probation review') && 
+                (
+                    <p className='anniversary-message'><strong> <img src = {anniversaryImage} height={40} width={40} alt='anniversary-image'/> {anniversaryMessage}</strong></p> 
+                )
+            }
 
             <div className='buttons'>
     
@@ -120,6 +134,7 @@ const PersonCard = ({id,name,title,salary,phone,email,animal,startDate,location,
                 ): (
                     <button onClick={() =>setIsEditing(!isEditing)}>Edit</button>
                 )}
+                <button onClick={handleRemove}>Remove</button>
             </div>
             </div>
                   

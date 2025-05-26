@@ -1,12 +1,27 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import axios from 'axios';
+// import axios from 'axios';
 import './AddEmployee.css';
+import useAxios from "../hooks/useAxios";
 
 
-const AddEmployee = ({onAddEmployee}) =>{
+const AddEmployee = ({onAddEmployee,apiUrl, animalEmojis = []}) =>{
 
-    const [formData, setFormData] = useState({});
+
+    const{post} = useAxios();
+    
+    const [formData, setFormData] = useState({
+        name: '',
+        title: '',
+        salary: '',
+        phone: '',
+        email: '',
+        animal: '',
+        startDate: '',
+        location: '',
+        department: '',
+        skills: ''
+    });
     const navigate = useNavigate();
 
     const handleChange = (e) =>{
@@ -18,9 +33,29 @@ const AddEmployee = ({onAddEmployee}) =>{
         e.preventDefault();
         const newEmployee = {...formData, skills:formData.skills.split(',')}
 
-        axios.post('http://localhost:3001/employees', newEmployee)
-        .then((res) =>{
-            onAddEmployee(res.data);
+        // axios.post('http://localhost:3001/employees', newEmployee)
+        // .then((res) =>{
+        //     onAddEmployee(res.data);
+        //     navigate('/person');
+        //     setFormData ({
+        //         name:'',
+        //         title:'',
+        //         salary:'',
+        //         phone:'',
+        //         email:'',
+        //         animal:'',
+        //         startDate:'',
+        //         location:'',
+        //         department:'',
+        //         skills:''
+        //         });
+        //     })
+        // .catch((err) => console.log('Failed to add employee', err));
+
+        const postData = async () =>{
+            const data = await post(apiUrl, newEmployee);
+            if(data){
+                onAddEmployee(data);
             navigate('/person');
             setFormData ({
                 name:'',
@@ -34,8 +69,10 @@ const AddEmployee = ({onAddEmployee}) =>{
                 department:'',
                 skills:''
                 });
-            })
-        .catch((err) => console.log('Failed to add employee', err));
+            }
+        }
+
+        postData();
 
     }
 
@@ -49,6 +86,15 @@ const AddEmployee = ({onAddEmployee}) =>{
                 <input type='number' placeholder='salary' value={formData.salary} onChange={handleChange} name='salary' />
                 <input type='email' placeholder='email' value={formData.email} onChange={handleChange} name='email' />
                 <input type='text' placeholder='animal' value={formData.animal} onChange={handleChange} name='animal' />
+                <div className="addEmployee-animal">
+                    <select value={formData.animal}onChange={handleChange}>
+                        <option value=''>Select Animal</option>
+                        {animalEmojis.map(animal => (
+                             <option key={animal.name} value={animal.name}>{animal.name}</option>
+                        ))}
+
+                    </select>
+                </div>
                 <input type='text' placeholder='startDate' value={formData.startDate} onChange={handleChange} name='startDate' />
                 <input type='text' placeholder='location' value={formData.location} onChange={handleChange} name='location' />
                 <input type='text' placeholder='department' value={formData.department} onChange={handleChange} name='department' />

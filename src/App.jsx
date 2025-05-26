@@ -5,44 +5,86 @@ import { BrowserRouter, Routes, Route} from "react-router";
 import Root from './pages/Root';
 import About from './pages/About';
 import AddEmployee from './pages/AddEmployee';
-import axios from 'axios';
+// import axios from 'axios';
+import useAxios from './hooks/useAxios';
 
 function App() {
   const [employeeData, setEmployeeData] = useState([]);
 
-  useEffect (() =>{
-    axios.get('http://localhost:3001/employees')
-    .then((res) =>{
-      console.log(res);
-      setEmployeeData(res.data)})
-    .catch((err) => 
-        console.log('Failed to fetch data', err));
-  }, [])
+  const apiUrl = 'http://localhost:3001/employees';
+  const {get, patch, remove} = useAxios();
 
-  const addEmployeeHandler = (newEmployee) =>{
-    const updatedEmployee = [...employeeData, {...newEmployee} ];
-    setEmployeeData(updatedEmployee);
-    console.log(updatedEmployee);
-  }
+  // useEffect (() =>{
+  //   axios.get('http://localhost:3001/employees')
+  //   .then((res) =>{
+  //     console.log(res);
+  //     setEmployeeData(res.data)})
+  //   .catch((err) => 
+  //       console.log('Failed to fetch data', err));
+  // }, [])
 
-  const handleEditFields = (id, editFields) =>{
+  
+    useEffect(() =>{
+      const getData = async () => {
+        const data = await get(apiUrl);
+        if (data) {
+          console.log(data);
+          setEmployeeData(data);
+        }
+      };
+      getData();
+    },[])
+  
 
-    const employee = employeeData.find(emp => emp.id === id);
-    if(!employee) return;
+    const addEmployeeHandler = (newEmployee) =>{
+      const updatedEmployee = [...employeeData, {...newEmployee} ];
+      setEmployeeData(updatedEmployee);
+      console.log(updatedEmployee);
+    }
 
-    const {skills, ...rest} = editFields;
+    const handleEditFields = (id, editFields) =>{
 
-    // const updatedField = {...employee, ...editFields};
+        const employee = employeeData.find(emp => emp.id === id);
+        if(!employee) return;
 
-    const updatedField = {...employee, ...rest, skills:Array.isArray(skills) ? skills : (skills || '').split(',')};
+        const {skills, ...rest} = editFields;
 
-    axios.patch(`http://localhost:3001/employees/${id}`,updatedField)
-    .then((res) => {
-        setEmployeeData (prev => 
-            prev.map(employee=> employee.id === id ? res.data : employee));
-    })
-    .catch((err) => console.error('Failed to update new price:', err));
-  }
+        // const updatedField = {...employee, ...editFields};
+
+        const updatedField = {...employee, ...rest, skills:Array.isArray(skills) ? skills : (skills || '').split(',')};
+
+        // axios.patch(`http://localhost:3001/employees/${id}`,updatedField)
+        // .then((res) => {
+        //     setEmployeeData (prev => 
+        //         prev.map(employee=> employee.id === id ? res.data : employee));
+        // })
+        // .catch((err) => console.error('Failed to update new price:', err));
+
+        const patchData = async() =>{
+            const data = await patch(`${apiUrl}/${id}`, updatedField);
+            console.log('updated data:',data);
+            if(data){
+            setEmployeeData (prev => 
+                 prev.map(employee=> employee.id === id ? data : employee))
+            }
+      
+        };
+        patchData();
+
+    }
+
+    const handleDelete = (id) =>{
+
+      const deleteData = async ()=>{
+        const data = await remove(`${apiUrl}/${id}`);
+        if(data){
+          setEmployeeData(prev =>
+              prev.filter(employee => employee.id !== id)
+          )
+        }
+      }
+      deleteData();
+    }
 
   return (
     <BrowserRouter>
@@ -54,9 +96,10 @@ function App() {
                   employeeData={employeeData} 
                  setEmployeeData = {setEmployeeData} 
                  onHandleEditFields = {handleEditFields} 
+                 onHandleDelete = {handleDelete}
                     />  }              
               />
-            <Route path="/add" element={<AddEmployee onAddEmployee={addEmployeeHandler}/>} />
+            <Route path="/add" element={<AddEmployee onAddEmployee={addEmployeeHandler} apiUrl={apiUrl}/> } />
           
         </Route>
       </Routes>
