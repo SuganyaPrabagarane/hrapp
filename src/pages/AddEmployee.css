@@ -7,10 +7,14 @@ form {
 form input {
   display: block;
   width: 350px;
+  height: 6vh;
   margin: 1rem 0;
 }
 
 button[type="submit"] {
-  width: 382px;
-  margin: 0;
+  width: 355px;
+  margin-bottom: 5vh;
+  background-color: rgb(17, 166, 81);
+  color: white;
+  font-weight: 600;
 }
