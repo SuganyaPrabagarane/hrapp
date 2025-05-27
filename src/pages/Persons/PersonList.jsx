@@ -1,9 +1,17 @@
-import PersonCard from "./PersonCard";
+import PersonCard from "../../Employees/PersonCard";
 import { useState } from "react";
+import { useNavigate } from 'react-router';
+import styles from './PersonList.module.css';
 
 const PersonList = ({employeeData, onHandleEditFields,onHandleDelete}) =>{
     const [searchValue, setSearchValue] = useState('');
     const [filter, setFilter] = useState('all');
+    const navigate = useNavigate();
+
+    const handleSeeMore =(id) =>{
+        console.log("See more button was clicked",id);
+        navigate(`/employeedetail/${id}`);
+    }
 
 
     const handleSearch =(event) =>{
@@ -29,15 +37,16 @@ const PersonList = ({employeeData, onHandleEditFields,onHandleDelete}) =>{
     return(
         <>
         <h1>Employees Details</h1>
+        <div className={styles.searchAndFilter}>
 
-        <div className="search">
-            <label htmlFor='search'>Search</label>
-            <input type='text' id='search' name='search' value={searchValue} onChange = {handleSearch} placeholder="Search by Name, Id, Title, Dept"/>
-        </div>
+            <div className={styles.search}>
+             <label htmlFor='search' >Search</label>
+                <input type='text' id='search' name='search' value={searchValue} onChange = {handleSearch} placeholder="Search by Name, Id, Title, Dept" className={styles.searchInput} />
+            </div>
 
-        <div className="filters">
-            <label htmlFor='filter-user'>Filter by Title</label>
-            <select value={filter} onChange={(e) =>setFilter(e.target.value)}>
+            <div className={styles.filter}>
+                <label htmlFor='filter-user'>Filter by Title</label>
+                <select value={filter} onChange={(e) =>setFilter(e.target.value)}>
                 <option value = 'all'>All</option>
 
                 {/* This displyas duplicate title */}
@@ -51,10 +60,11 @@ const PersonList = ({employeeData, onHandleEditFields,onHandleDelete}) =>{
                 ))}
               
 
-            </select>
+                </select>
+            </div>
         </div>
 
-       <div className="employeeList">
+       <div className={styles.employeeList}>
        {filteredEmployee.length > 0 ? (
 
         filteredEmployee.map(employee => (
@@ -62,6 +72,8 @@ const PersonList = ({employeeData, onHandleEditFields,onHandleDelete}) =>{
              skills={employee.skills.join(', ')} 
             handleEdit = {(id,editFields) => onHandleEditFields(id, editFields)}
             handleDelete = {(id) => onHandleDelete(id)}
+            OnHandleSeeMore = {()=> handleSeeMore(employee.id)}
+            
         />
 
         ))

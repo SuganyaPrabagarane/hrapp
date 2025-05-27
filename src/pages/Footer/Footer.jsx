@@ -1,7 +1,8 @@
-import './Footer.css';
+import styles from './Footer.module.css';
+
 const Footer = ({year}) =>{
     return(
-        <footer>
+        <footer className={styles.footer}>
         <p>Copyright@{year}</p>
         </footer>
     )

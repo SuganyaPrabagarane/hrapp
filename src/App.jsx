@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
-import PersonList from './Employees/PersonList';
-import './App.css';
+import PersonList from './pages/Persons/PersonList';
+import styles from './App.module.css';
 import { BrowserRouter, Routes, Route} from "react-router";
 import Root from './pages/Root';
 import About from './pages/About';
-import AddEmployee from './pages/AddEmployee';
-// import axios from 'axios';
+import AddEmployee from './pages/AddEmployee/AddEmployee';
+import axios from 'axios';
 import useAxios from './hooks/useAxios';
+import EmployeeDetail from './pages/Persons/EmployeeDetail';
+import { useNavigate } from 'react-router';
 
 function App() {
   const [employeeData, setEmployeeData] = useState([]);
@@ -100,6 +102,8 @@ function App() {
                     />  }              
               />
             <Route path="/add" element={<AddEmployee onAddEmployee={addEmployeeHandler} apiUrl={apiUrl}/> } />
+
+            <Route path="/employeedetail/:id" element={<EmployeeDetail /> } />
           
         </Route>
       </Routes>

@@ -1,6 +1,11 @@
 import { useState } from 'react';
-import './Employees.css';
-const PersonCard = ({id,name,title,salary,phone,email,animal,startDate,location,department,skills,handleEdit,handleDelete}) =>{
+import AnimalEmoji from './AnimalEmoji';
+
+import styles from './PersonCard.module.css';
+import Experience from './Experience';
+
+const PersonCard = ({id,name,title,salary,phone,email,animal,startDate,location,department,skills,handleEdit,handleDelete,OnHandleSeeMore,...rest}) =>{
+  
 
     const [isEditing, setIsEditing] = useState(false);
     const [editFields, setEditFields] = useState({
@@ -9,6 +14,7 @@ const PersonCard = ({id,name,title,salary,phone,email,animal,startDate,location,
         department: department,
         skills: skills
     });
+   
 
     const handleSave = () =>{
         handleEdit(id, editFields);
@@ -33,68 +39,14 @@ const PersonCard = ({id,name,title,salary,phone,email,animal,startDate,location,
         alert(`${name}'s details are deleted successfully`)
     }
 
-    const calculateExperience = () =>{
-        const fromDate = new Date(startDate);
-        const toDate = new Date();
-        let years = toDate.getFullYear() - fromDate.getFullYear();
-        let months = toDate.getMonth() - fromDate.getMonth();
-        if (months < 0){
-            years--;
-            months += 12;
-        }
-
-        return{
-            years,
-            months
-        }
-
-    }
-
-    const {years, months} = calculateExperience(); // Destructure years and months from the return object
-
-    let anniversaryMessage = '';
-    let anniversaryImage = '';
-    if ([5,10,15].includes(years) && months == 0){
-         anniversaryMessage = 'Schedule recognition meeting';
-         anniversaryImage = 'public/icons/party-popper.png';
-    } else if (years === 0 && months < 6){
-        anniversaryMessage = 'Schedule probation review';  
-        anniversaryImage = 'public/icons/christmas-bell.png' 
-    }
-
-    const addAnimalEmoji = (animal) =>{
-    
-        const animalEmojis = [
-        { name: 'Rabbit' , emoji: '/public/icons/rabbit.png' },
-        { name: 'Bee' , emoji: '/public/icons/bee.png'},
-        { name: 'Dog', emoji: '/public/icons/dog.png'},
-        { name: 'Deer', emoji: '/public/icons/deer.png'},
-        { name: 'Elephant' , emoji:'/public/icons/elephant.png'},
-        { name: 'Fox', emoji: '/public/icons/fox.png'},
-        { name: 'JellyFish', emoji: '/public/icons/jellyfish.png'},
-        { name: 'Koala', emoji: '/public/icons/koala.png'},
-        { name: 'Lion', emoji: '/public/icons/lion.png'},
-        { name: 'Owl', emoji: '/public/icons/owl.png'},
-        { name: 'Panda', emoji: '/public/icons/panda.png'},
-        { name: 'Squirrel', emoji: '/public/icons/squirrel.png'},
-        { name: 'Turtle', emoji: '/public/icons/turtle.png'},
-        { name: 'Whale', emoji: '/public/icons/whale.png'}
-   
-        ]
-
-        const filterEmoji = animalEmojis.find(a => a.name.toLowerCase() === animal.toLowerCase());
-        return filterEmoji ? filterEmoji.emoji : ' ';
-
-    }
-
     return(
        
-        <div className="card">
-            <div className='div-name'>
-                <p className='name'>{name} (<span className='title'>{title}</span>)</p>
+        <div className={styles.card}>
+            <div className={styles.nameAndTitle}>
+                <p className={styles.name}>{name} (<span className={styles.title}>{title}</span>)</p>
                 {/* <p className='title'> {title}</p> */}
             </div>
-            <div className='div-title'>
+            <div className={styles.cardContainer}>
                 { (!isEditing) ? (
                     <>
                         <p><strong style={{ color: 'blue' }}>Salary:</strong> {salary} €</p>
@@ -114,27 +66,22 @@ const PersonCard = ({id,name,title,salary,phone,email,animal,startDate,location,
                 }
             <p><strong style={{ color: 'blue' }}>Phone: </strong>{phone}</p>
             <p><strong style={{ color: 'blue' }}>Email:</strong> {email}</p>
-            <p><strong style={{ color: 'blue' }}>Animal:</strong> <img src = {addAnimalEmoji(animal)} height={40} width={40} alt='animal-image'/></p>
-            <p><strong style={{ color: 'blue' }}>Start Date:</strong> {startDate}</p>
-            <p><strong style={{ color: 'blue' }}>Experience: </strong>{years} Years and {months} Months</p>
 
-            {(anniversaryMessage === 'Schedule recognition meeting' || anniversaryMessage ==='Schedule probation review') && 
-                (
-                    <p className='anniversary-message'><strong> <img src = {anniversaryImage} height={40} width={40} alt='anniversary-image'/> {anniversaryMessage}</strong></p> 
-                )
-            }
+            <AnimalEmoji animal = {animal} />
+            <Experience startDate={startDate} />
 
-            <div className='buttons'>
+            <div className={styles.buttons}>
     
                 {isEditing ? (
                     <>
-                         <button onClick={handleSave}>Save</button>
-                         <button onClick={handleCancel}>Cancel</button>
+                         <button onClick={handleSave} className={styles.saveButton}>Save</button>
+                         <button onClick={handleCancel} className={styles.cancelButton}>Cancel</button>
                     </>
                 ): (
-                    <button onClick={() =>setIsEditing(!isEditing)}>Edit</button>
+                    <button onClick={() =>setIsEditing(!isEditing)} className={styles.editButton}>Edit</button>
                 )}
-                <button onClick={handleRemove}>Remove</button>
+                <button onClick={OnHandleSeeMore} className={styles.seeMoreButton}>See More</button>
+                <button onClick={handleRemove} className={styles.removeButton}>Remove</button>
             </div>
             </div>
                   

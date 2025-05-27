@@ -1,0 +1,41 @@
+.employeeList {
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.searchAndFilter {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.search,
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+label {
+  width: 120px;
+  font-size: 1.2rem;
+  text-align: right;
+}
+
+input {
+  border-radius: 10px;
+  width: 35vh;
+  height: 5vh;
+  padding-left: 5px;
+}
+
+select {
+  border-radius: 10px;
+  width: 35vh;
+  height: 5vh;
+  padding-left: 5px;
+}
