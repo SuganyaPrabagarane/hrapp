@@ -1,0 +1,125 @@
+.container {
+  width: 100%;
+  max-width: 400px;
+  margin: 1.5rem auto;
+  font-family: sans-serif;
+  color: #e8f1f8;
+  cursor: pointer;
+}
+
+.personCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #2a3c4f;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  color: #f0f4f8;
+  transition: box-shadow 0.5s ease;
+}
+
+.personCard:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.imageSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #1b2c3a;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.03);
+}
+
+.image {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #435b72;
+}
+
+/* Star image and ID styles */
+.starWrapper {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 80px;
+  height: 80px;
+}
+
+.starImage {
+  width: 100%;
+  height: 100%;
+}
+
+.starId {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  color: #1f2c3a;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.textSection {
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #94d2ff;
+  margin-left: 6px;
+}
+
+p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  margin: 0.2rem 0;
+  color: #d0e0f0;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.seeMoreButton {
+  background-color: #df5334;
+  height: 6vh;
+  color: #ffffff;
+  font-weight: 580;
+  padding: 0.5rem 1rem;
+  border: 0.5px solid #f0f4f8;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.seeMoreButton:hover {
+  background-color: #da5031;
+  border: 0.5px solid #c8cacb;
+}
