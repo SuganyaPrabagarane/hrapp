@@ -1,12 +1,25 @@
-# React + Vite
+# HRAPP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**HRAPP** is a web application designed to manage and view the list of employees working at Helsinki Business College. It provides detailed information about each employee in an organized and user-friendly interface.
 
-Currently, two official plugins are available:
+## Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Displays all employees in a clean card format.
+- Allows users to **add new employees**, saving their details to both the database and the UI in real-time.
+- Supports **editing** existing employee information with options to save or cancel changes.
+- Enables **deletion** of employee records with a confirmation prompt before proceeding.
+- Shows confirmation messages when an employee’s details are successfully added or edited.
+- Automatically displays messages based on employee experience:
+  - 🎉 For work anniversaries at 5, 10, 15 years: **"Schedule recognition meeting"**
+  - 🔔 For employees with less than 6 months of service: **"Schedule probation review"**
+- Displays an animal emoji for each employee based on the selected animal.
+- Users can **search** for employees by **Name**, **ID**, and **Department**.
+- Employees can be **filtered** by **Title** using a dropdown or search interface.
+- Includes a custom React hook, **`useAxios`**, to manage all REST API calls cleanly and efficiently.
 
-## Expanding the ESLint configuration
+## Technology Used
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React** – for building the user interface
+- **JSON Server** – as a mock backend database
+- **Custom Axios Hook** (`useAxios`) – for handling API requests
+- **CSS Modules** – for modular and scoped styling

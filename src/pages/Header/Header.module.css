@@ -23,7 +23,7 @@
   color: rgb(2, 233, 21);
 }
 
-active {
+.active {
   color: orange;
   border-bottom: 1px dashed white;
 }

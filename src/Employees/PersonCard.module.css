@@ -1,89 +1,125 @@
-.card {
-  width: 47vh;
-  min-height: 40vh;
-  column-gap: 2vh;
-  padding: 20px;
-  border-radius: 10px;
-  background-color: whitesmoke;
-  column-gap: 2vh;
-  color: rgb(1, 1, 14);
-  line-height: 30px;
-  text-align: left;
-  position: relative;
-}
-
-.anniversaryMessage {
-  border-radius: 5px;
-  box-shadow: 2px 2px 6px rgba(19, 82, 1, 0.5);
-  background-color: #da8002;
-  color: whitesmoke;
-  padding-top: 5px;
-}
-
-.nameAndTitle {
-  position: absolute;
-  top: 0;
-  left: 0;
+.container {
   width: 100%;
-  border-radius: 10px;
-  background-color: rgb(5, 119, 5);
-  color: whitesmoke;
-  text-align: center;
-}
-.name {
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 1.2rem;
-  padding: 10px 5px 10px 5px;
-}
-.title {
-  font-size: 0.8rem;
-  font-weight: 600;
+  max-width: 400px;
+  margin: 1.5rem auto;
+  font-family: sans-serif;
+  color: #e8f1f8;
+  cursor: pointer;
 }
 
-.cardContainer {
-  padding-top: 40px;
-  font-size: 1rem;
-}
-
-.cardContainer p {
-  box-shadow: inset 2px 2px 3px 1px rgb(240, 221, 215);
-  padding: 2px 2px 2px 10px;
-}
-
-img {
-  padding-left: 2px, 0px 0px 10px;
-}
-
-.buttons {
-  padding: 10px;
+.personCard {
+  position: relative;
   display: flex;
+  flex-direction: column;
+  background-color: #2a3c4f;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  color: #f0f4f8;
+  transition: box-shadow 0.5s ease;
+}
+
+.personCard:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.imageSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #1b2c3a;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.03);
+}
+
+.image {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #435b72;
+}
+
+/* Star image and ID styles */
+.starWrapper {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 80px;
+  height: 80px;
+}
+
+.starImage {
+  width: 100%;
+  height: 100%;
+}
+
+.starId {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  color: #1f2c3a;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.textSection {
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
   gap: 0.5rem;
 }
 
-button {
-  min-width: 10vh;
-  height: 6.5vh;
-  border-radius: 10px;
-  background-color: antiquewhite;
+.name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
 }
 
-.removeButton:hover {
-  background-color: rgb(249, 21, 21);
-  color: white;
+.title {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #94d2ff;
+  margin-left: 6px;
 }
 
-.saveButton:hover {
-  background-color: rgb(32, 121, 62);
-  color: white;
+p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  margin: 0.2rem 0;
+  color: #d0e0f0;
 }
 
-.editButton:hover {
-  background-color: rgb(24, 113, 177);
-  color: white;
+.icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 }
 
-.cancelButton:hover {
-  background-color: rgb(228, 52, 52);
-  color: white;
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.seeMoreButton {
+  background-color: #df5334;
+  height: 6vh;
+  color: #ffffff;
+  font-weight: 580;
+  padding: 0.5rem 1rem;
+  border: 0.5px solid #f0f4f8;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.seeMoreButton:hover {
+  background-color: #da5031;
+  border: 0.5px solid #c8cacb;
 }

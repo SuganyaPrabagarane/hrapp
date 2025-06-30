@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AnimalEmoji = ({ animal }) => {
+const AnimalEmoji = ({ animal}) => {
 
   const animalEmojis = [
     { name: 'Rabbit', emoji: '/public/icons/rabbit.png' },
@@ -23,10 +23,10 @@ const AnimalEmoji = ({ animal }) => {
 
 
   return (
-    <div>
-      <strong style={{ color: 'blue' }}>Animal:</strong>{' '}
+    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+      <strong style={{ minWidth: '70px' }}>Animal:</strong>{' '}
       {matchedEmoji ? (
-        <img src={matchedEmoji.emoji} height={40} width={40} alt={`${animal}-emoji`} />
+        <img src={matchedEmoji.emoji} height={50} width={50} alt={`${animal}-emoji`} />
       ) : (
         'N/A'
       )}

@@ -1,83 +1,55 @@
 {
   "employees": [
     {
-      "id": "1",
-      "name": "Suganya Prabagarane",
-      "title": "Developer",
-      "salary": "1000",
-      "phone": "555-1234",
-      "email": "suganyaprabagarane@gmail.com",
-      "animal": "Panda",
-      "startDate": "2024-12-15",
-      "location": "espoo",
-      "department": "Backend developer",
-      "skills": [
-        "JavaScript",
-        "  Larvel",
-        "  Agile"
-      ]
-    },
-    {
-      "id": "2",
-      "name": "Prabagarane",
-      "title": "Product Manager",
-      "salary": "200",
-      "phone": "555-5678",
-      "email": "prabagarane@gmail.com",
-      "animal": "Dog",
-      "startDate": "2020-03-10",
-      "location": "Chennai",
-      "department": "SDM",
-      "skills": [
-        "Scrum",
-        "  Roadmapping",
-        "  testing"
-      ]
-    },
-    {
       "id": "3",
       "name": "Sonia",
+      "gender": "Female",
       "title": "UI/UX Designer",
-      "salary": "3000",
+      "salary": "4000",
       "phone": "555-2345",
       "email": "sonia@gmail.com",
       "animal": "Deer",
-      "startDate": "2020-05-01",
-      "location": "Bangaladesh",
-      "department": "Design",
+      "startDate": "2020-06-01",
+      "location": "Vanta",
+      "department": "Testing",
       "skills": [
         "Figma",
-        "Sketch",
-        "User Research"
+        "User Research",
+        "testing",
+        "sdfsf",
+        "asff"
       ]
     },
     {
       "id": "4",
       "name": "Fizza",
+      "gender": "Female",
       "title": "DevOps Engineer",
-      "salary": "4000",
+      "salary": "3000",
       "phone": "555-8765",
       "email": "fizza@gmail.com",
       "animal": "Rabbit",
-      "startDate": "2014-12-20",
-      "location": "finland",
-      "department": "Developer",
+      "startDate": "2025-02-20",
+      "location": "Pakistan",
+      "department": "Backend Developer",
       "skills": [
         "AWS",
         " Docker",
         " CI/CD",
-        " testing"
+        " testing",
+        "laravel"
       ]
     },
     {
       "id": "5",
       "name": "Devesh",
+      "gender": "Male",
       "title": "Data Scientist",
       "salary": "3000",
       "phone": "555-1357",
       "email": "devesh@gmail.com",
       "animal": "JellyFish",
-      "startDate": "2014-08-01",
+      "startDate": "2015-6-01",
       "location": "Chennai",
       "department": "Data",
       "skills": [
@@ -89,6 +61,7 @@
     {
       "id": "6",
       "name": "Pragadhish",
+      "gender": "Male",
       "title": "Marketing Specialist",
       "salary": "4000",
       "phone": "555-2468",
@@ -106,6 +79,7 @@
     {
       "id": "7",
       "name": "Margit Tennosar",
+      "gender": "Female",
       "title": "Developer",
       "salary": 8000,
       "phone": "555-3691",
@@ -123,6 +97,7 @@
     {
       "id": "8",
       "name": "Santosh",
+      "gender": "Male",
       "title": "Backend Developer",
       "salary": 7000,
       "phone": "555-7410",
@@ -140,6 +115,7 @@
     {
       "id": "9",
       "name": "Keerthana",
+      "gender": "Female",
       "title": "QA Engineer",
       "salary": 5000,
       "phone": "555-3691",
@@ -157,6 +133,7 @@
     {
       "id": "10",
       "name": "Praveen",
+      "gender": "Male",
       "title": "Finance Analyst",
       "salary": 5000,
       "phone": "555-9630",
@@ -172,68 +149,95 @@
       ]
     },
     {
-      "id": "8458",
-      "name": "test1",
-      "title": "test",
-      "salary": 1000,
-      "phone": "",
-      "email": "suganyaprabagarane@gmail.com",
-      "animal": "Koala",
+      "id": "e9b7",
+      "name": "Sathish",
+      "gender": "Male",
+      "title": "Architecture",
+      "salary": "5000",
+      "phone": "4592355",
+      "email": "satish@gmail.com",
+      "animal": "Bee",
       "startDate": "12.10.2010",
-      "location": "chennai",
-      "department": "it",
+      "location": "Helsinki",
+      "department": "Information Technology",
       "skills": [
-        "wedwqed",
-        "sfdwef",
-        "wedewdw"
+        "architech",
+        " testing",
+        " developing"
       ]
     },
     {
-      "id": "a865",
-      "name": "test10",
-      "title": "test10",
-      "salary": 10,
-      "phone": "",
-      "email": "jamesbond@gmail.com",
-      "animal": "panda",
-      "startDate": "12.10.2010",
-      "location": "bangalore",
+      "id": "6ea4",
+      "name": "eweqre",
+      "gender": "Male",
+      "title": "2ee",
+      "salary": 4439,
+      "phone": "2424",
+      "email": "devesh@gmail.com",
+      "animal": "Bee",
+      "startDate": "12.10.2020",
+      "location": "Espoo",
       "department": "werewr",
       "skills": [
-        "wedwqed",
-        "sfdwef",
-        "wedewdw"
+        "testing",
+        " developing"
       ]
     },
     {
-      "id": "2948",
-      "name": "dff",
-      "title": "dfesf",
-      "salary": 1232,
-      "phone": "",
-      "email": "suganyaprabagarane1@gmail.com",
+      "id": "7196",
+      "name": "Suganya",
+      "gender": "Female",
+      "title": "sdff",
+      "salary": 23123,
+      "phone": "1231233",
+      "email": "suganya@gmail.com",
       "animal": "Elephant",
-      "startDate": "wedewd",
-      "location": "wewe",
+      "startDate": "2025-04-20",
+      "location": "Espoo",
       "department": "wewef",
       "skills": [
-        "wewef"
+        "2",
+        "4",
+        "3"
       ]
     },
     {
-      "id": "94fa",
-      "name": "2e2e",
-      "title": "wqerdewe",
-      "salary": 123,
-      "phone": "",
-      "email": "suganyaprabagarane@gmail.com",
-      "animal": "Dog",
-      "startDate": "",
-      "location": "",
-      "department": "qwsqws",
+      "id": "695f",
+      "name": "efwef",
+      "gender": "Male",
+      "title": "wefwefg",
+      "salary": 213123,
+      "phone": "2321344",
+      "email": "prabagarane@gmail.com",
+      "animal": "Deer",
+      "startDate": "2025-06-18",
+      "location": "qwdw",
+      "department": "erderf",
       "skills": [
-        "wswq",
-        "wdwqd"
+        "3rdfwf",
+        "wefwef",
+        "werfwef",
+        "wefw",
+        "f"
+      ]
+    },
+    {
+      "id": "855e",
+      "name": "efwwef",
+      "gender": "Male",
+      "title": "wefewf",
+      "salary": 123123,
+      "phone": "12323",
+      "email": "devesh@gmail.com",
+      "animal": "Koala",
+      "startDate": "2025-06-01",
+      "location": "qwdwqdf",
+      "department": "fdewf",
+      "skills": [
+        "2",
+        "3",
+        "4",
+        "5"
       ]
     }
   ]

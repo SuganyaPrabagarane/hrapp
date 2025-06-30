@@ -1,20 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-// import axios from 'axios';
 import styles from'./AddEmployee.module.css';
 import useAxios from "../../hooks/useAxios";
 import ErrorHandling from "../../ErrorHandling/ErrorHandling";
 
-
-
 const AddEmployee = ({onAddEmployee,apiUrl}) =>{
     const [error, setError] = useState();
-
-
     const{post} = useAxios();
-    
     const [formData, setFormData] = useState({
         name: '',
+        gender:'',
         title: '',
         salary: '',
         phone: '',
@@ -34,54 +29,36 @@ const AddEmployee = ({onAddEmployee,apiUrl}) =>{
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-
-        const requiredFields = ['name', 'title', 'email','department','skills'];
+        const requiredFields = ['name', 'title', 'email','department','skills'];    
         
-                for(let field of requiredFields){
-                    if(!formData[field]){
-                        setError(`Please enter ${field}`);
-                        return;
-                    }
-                }
+        for(let field of requiredFields){
+            if(!formData[field]){
+                setError(`Please enter ${field}`);
+                return;
+            }
+        }
         setError('');
 
         const newEmployee = {...formData, skills:formData.skills.split(',')}
-
-        // axios.post('http://localhost:3001/employees', newEmployee)
-        // .then((res) =>{
-        //     onAddEmployee(res.data);
-        //     navigate('/person');
-        //     setFormData ({
-        //         name:'',
-        //         title:'',
-        //         salary:'',
-        //         phone:'',
-        //         email:'',
-        //         animal:'',
-        //         startDate:'',
-        //         location:'',
-        //         department:'',
-        //         skills:''
-        //         });
-        //     })
-        // .catch((err) => console.log('Failed to add employee', err));
 
         const postData = async () =>{
             const data = await post(apiUrl, newEmployee);
             if(data){
                 onAddEmployee(data);
-            navigate('/person');
-            setFormData ({
-                name:'',
-                title:'',
-                salary:'',
-                phone:'',
-                email:'',
-                animal:'',
-                startDate:'',
-                location:'',
-                department:'',
-                skills:''
+                alert(`${formData.name} added successfully`)
+                navigate('/person');
+                setFormData ({
+                    name:'',
+                    gender:'',
+                    title:'',
+                    salary:'',
+                    phone:'',
+                    email:'',
+                    animal:'',
+                    startDate:'',
+                    location:'',
+                    department:'',
+                    skills:''
                 });
             }
         }
@@ -93,13 +70,21 @@ const AddEmployee = ({onAddEmployee,apiUrl}) =>{
   
     return(
         <>
+        <div className={styles.container}>
             <h1>Add new Employee</h1>
+
             <form onSubmit = {handleSubmit} className={styles.form}>
                 
                 <input type='text' placeholder='Name' value={formData.name} onChange={handleChange} name='name' className={styles.input} />
-                <input type='text' placeholder='title' value={formData.title} onChange={handleChange} name='title' className={styles.input}/>
-                <input type='number' placeholder='salary' value={formData.salary} onChange={handleChange} name='salary' className={styles.input}/>
-                <input type='email' placeholder='email' value={formData.email} onChange={handleChange} name='email' className={styles.input}/>
+                <select value={formData.gender}onChange={handleChange} className={styles.select} name='gender'>
+                        <option value="" disabled={true}> --Select Gender-- </option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                </select>                
+                <input type='text' placeholder='Title' value={formData.title} onChange={handleChange} name='title' className={styles.input}/>
+                <input type='number' placeholder='Salary' value={formData.salary} onChange={handleChange} name='salary' className={styles.input}/>
+                <input type='number' placeholder='Phone' value={formData.phone} onChange={handleChange} name='phone' className={styles.input}/>
+                <input type='email' placeholder='Email' value={formData.email} onChange={handleChange} name='email' className={styles.input}/>
 
                 <div className="addEmployee-animal">
                     <select value={formData.animal}onChange={handleChange} className={styles.select} name='animal'>
@@ -120,15 +105,15 @@ const AddEmployee = ({onAddEmployee,apiUrl}) =>{
                     </select>
                 </div>
 
-                <input type='text' placeholder='startDate' value={formData.startDate} onChange={handleChange} name='startDate' className={styles.input}/>
-                <input type='text' placeholder='location' value={formData.location} onChange={handleChange} name='location' className={styles.input}/>
-                <input type='text' placeholder='department' value={formData.department} onChange={handleChange} name='department' className={styles.input}/>
-                <input type='text' placeholder='skills' value={formData.skills} onChange={handleChange} name='skills' className={styles.input}/>
+                <input type='date' placeholder='StartDate' value={formData.startDate} onChange={handleChange} name='startDate' className={styles.input}/>
+                <input type='text' placeholder='Location' value={formData.location} onChange={handleChange} name='location' className={styles.input}/>
+                <input type='text' placeholder='Department' value={formData.department} onChange={handleChange} name='department' className={styles.input}/>
+                <input type='text' placeholder='Skills' value={formData.skills} onChange={handleChange} name='skills' className={styles.input}/>
                 
-
                 <button type='submit' className={styles.submitBtn}>Add Employee</button>
                 <ErrorHandling error={error}/>
             </form>
+            </div>
         </>
     )
 

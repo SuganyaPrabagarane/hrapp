@@ -5,7 +5,7 @@ import { Outlet } from "react-router";
 const Persons = () =>{
     return(
         <>
-        <Header logo='Suganya Prabagarane'/>
+        <Header logo='Helsinki Business College'/>
         <main>
         <Outlet />
         </main>

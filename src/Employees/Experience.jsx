@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './PersonCard.module.css'; 
+import styles from './Experience.module.css'; 
 
 const Experience = ({ startDate }) => {
 
@@ -26,20 +26,24 @@ const Experience = ({ startDate }) => {
     let anniversaryImage = '';
     if ([5,10,15].includes(years) && months == 0){
          anniversaryMessage = 'Schedule recognition meeting';
-         anniversaryImage = 'public/icons/party-popper.png';
+         anniversaryImage = '/icons/party-popper.png';
     } else if (years === 0 && months < 6){
         anniversaryMessage = 'Schedule probation review';  
-        anniversaryImage = 'public/icons/christmas-bell.png' 
+        anniversaryImage = '/icons/christmas-bell.png' 
     }
 
   return (
-    <div>
-      <p><strong style={{ color: 'blue' }}>Start Date:</strong> {startDate}</p>
-      <p><strong style={{ color: 'blue' }}>Experience:</strong> {years} Years and {months} Months</p>
+    <div className={styles.experience}>
+      
+      <p> <img src='/icons/experience.webp' height={25} width={25} alt='experience-icon' />  {years} Years and {months} Months</p>
       {anniversaryMessage && (
-        <p className={styles.anniversaryMessage}>
+        <p className={`${styles.anniversaryMessage} ${
+          anniversaryMessage === 'Schedule recognition meeting'
+            ? styles.recognition
+            : styles.probation
+        }`}>
           <strong>
-            <img src={anniversaryImage} height={40} width={40} alt='anniversary-icon' /> {anniversaryMessage}
+            <img src={anniversaryImage} alt='anniversary-icon' /> {anniversaryMessage}
           </strong>
         </p>
       )}
